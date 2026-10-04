@@ -1,0 +1,3 @@
+# Preserve delivered file bytes so the SHA-256 manifest also matches Git downloads.
+交付/** -text
+RSI数据平台_调研与现状对比_v0.1.md -text
