@@ -1,0 +1,292 @@
+{
+  "type": "object",
+  "properties": {
+    "payload_version": {
+      "const": "1.0.0"
+    },
+    "contract_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "scope": {
+      "type": "object",
+      "properties": {
+        "team_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "team_id",
+        "project_id"
+      ],
+      "additionalProperties": false
+    },
+    "domain_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "producer_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "owner_principal": {
+      "type": "string",
+      "minLength": 1
+    },
+    "data_kind": {
+      "enum": [
+        "STRUCTURED",
+        "DOCUMENT",
+        "IMAGE",
+        "AUDIO",
+        "AGENT"
+      ]
+    },
+    "schema_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "grain": {
+      "type": "string",
+      "minLength": 1
+    },
+    "primary_key_fields": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "field_semantics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "field_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "data_type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "meaning": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unit": {
+            "type": "string",
+            "minLength": 1
+          },
+          "nullable": {
+            "type": "boolean"
+          },
+          "missing_semantics": {
+            "type": "string",
+            "minLength": 1
+          },
+          "mapping_version": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "field_id",
+          "name",
+          "data_type",
+          "meaning",
+          "nullable",
+          "missing_semantics"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "access": {
+      "type": "object",
+      "properties": {
+        "policy_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "allowed_purposes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "service_scope_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "policy_ref",
+        "allowed_purposes",
+        "service_scope_ref"
+      ],
+      "additionalProperties": false
+    },
+    "quality": {
+      "type": "object",
+      "properties": {
+        "rule_set_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "failure_scope": {
+          "enum": [
+            "RECORD",
+            "BATCH",
+            "ASSET"
+          ]
+        },
+        "review_owner": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sla_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "rule_set_ref",
+        "failure_scope",
+        "review_owner",
+        "sla_ref"
+      ],
+      "additionalProperties": false
+    },
+    "lineage": {
+      "type": "object",
+      "properties": {
+        "producer_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "event_schema_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_locator_required": {
+          "const": true
+        },
+        "historical_policy": {
+          "const": "UNKNOWN_WHEN_UNVERIFIABLE"
+        }
+      },
+      "required": [
+        "producer_version",
+        "event_schema_ref",
+        "source_locator_required",
+        "historical_policy"
+      ],
+      "additionalProperties": false
+    },
+    "lifecycle": {
+      "type": "object",
+      "properties": {
+        "retention_policy_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "withdrawal_policy_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recovery_policy_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "retention_policy_ref",
+        "withdrawal_policy_ref",
+        "recovery_policy_ref"
+      ],
+      "additionalProperties": false
+    },
+    "update_mode": {
+      "enum": [
+        "APPEND",
+        "REVISE",
+        "SNAPSHOT"
+      ]
+    },
+    "idempotency_scope": {
+      "const": "PRINCIPAL_ENDPOINT_PROJECT"
+    },
+    "extensions": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z][a-z0-9_]{2,63}$": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "payload_version",
+    "contract_id",
+    "version",
+    "scope",
+    "domain_id",
+    "producer_id",
+    "owner_principal",
+    "data_kind",
+    "schema_ref",
+    "grain",
+    "access",
+    "quality",
+    "lineage",
+    "lifecycle",
+    "update_mode",
+    "idempotency_scope"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "data_kind": {
+            "const": "STRUCTURED"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "primary_key_fields",
+          "field_semantics"
+        ],
+        "properties": {
+          "primary_key_fields": {
+            "minItems": 1
+          },
+          "field_semantics": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:rsi:schema:data-contract:1.0.0",
+  "title": "RSI Team Data Contract Registration"
+}

@@ -1,0 +1,295 @@
+{
+  "type": "object",
+  "properties": {
+    "specversion": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "source": {
+      "type": "string",
+      "format": "uri"
+    },
+    "type": {
+      "enum": [
+        "rsi.business.run.v1",
+        "rsi.agent.run.v1"
+      ]
+    },
+    "subject": {
+      "type": "string",
+      "minLength": 1
+    },
+    "time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "datacontenttype": {
+      "const": "application/json"
+    },
+    "dataschema": {
+      "const": "urn:rsi:schema:event:1.0.0"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "payload_version": {
+          "const": "1.0.0"
+        },
+        "scope": {
+          "type": "object",
+          "properties": {
+            "team_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "project_id": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "team_id",
+            "project_id"
+          ],
+          "additionalProperties": false
+        },
+        "producer_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "request_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "received_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "run": {
+          "type": "object",
+          "properties": {
+            "run_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "job_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "job_version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "status": {
+              "enum": [
+                "START",
+                "COMPLETE",
+                "FAIL",
+                "ABORT"
+              ]
+            },
+            "inputs": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "asset_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "asset_version_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "locator": {
+                    "type": "object"
+                  },
+                  "relation_type": {
+                    "enum": [
+                      "COPY",
+                      "PARSE",
+                      "NORMALIZE",
+                      "AGGREGATE",
+                      "RETRIEVE",
+                      "CITE",
+                      "DERIVE",
+                      "EVALUATE",
+                      "SUPERSEDE"
+                    ]
+                  }
+                },
+                "required": [
+                  "asset_id",
+                  "asset_version_id",
+                  "relation_type"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "outputs": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "asset_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "asset_version_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "locator": {
+                    "type": "object"
+                  },
+                  "relation_type": {
+                    "enum": [
+                      "COPY",
+                      "PARSE",
+                      "NORMALIZE",
+                      "AGGREGATE",
+                      "RETRIEVE",
+                      "CITE",
+                      "DERIVE",
+                      "EVALUATE",
+                      "SUPERSEDE"
+                    ]
+                  }
+                },
+                "required": [
+                  "asset_id",
+                  "asset_version_id",
+                  "relation_type"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "error_ref": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "run_id",
+            "job_id",
+            "job_version",
+            "status",
+            "inputs",
+            "outputs"
+          ],
+          "additionalProperties": false
+        },
+        "agent": {
+          "type": "object",
+          "properties": {
+            "agent_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "agent_version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "trace_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "span_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "principal_ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "policy_version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "prompt_ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "model_ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "tool_refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "required": [
+            "agent_id",
+            "agent_version",
+            "trace_id",
+            "principal_ref",
+            "policy_version",
+            "prompt_ref",
+            "model_ref",
+            "tool_refs"
+          ],
+          "additionalProperties": false
+        },
+        "extensions": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-z][a-z0-9_]{2,63}$": {
+              "type": "object"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "payload_version",
+        "scope",
+        "producer_id",
+        "request_id",
+        "run"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "specversion",
+    "id",
+    "source",
+    "type",
+    "subject",
+    "time",
+    "datacontenttype",
+    "dataschema",
+    "data"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "rsi.agent.run.v1"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "required": [
+              "agent"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:rsi:schema:event:1.0.0",
+  "title": "RSI Business and Agent Run Event"
+}

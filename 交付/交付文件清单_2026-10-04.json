@@ -1,0 +1,127 @@
+{
+  "date": "2026-10-04",
+  "file_count": 24,
+  "total_bytes": 1006800,
+  "files": [
+    {
+      "path": "交付/README.md",
+      "bytes": 2251,
+      "sha256": "9f54d76265ae51904d30128aeb779c1d4852e690f4c71f22aa8f3ccab928193b"
+    },
+    {
+      "path": "交付/RSI数据平台_元数据与血缘具体实现说明_v1.0.md",
+      "bytes": 27511,
+      "sha256": "11919b597d0dfaa487a40bd4009f46ac2563c45fbcaf3aa41e2b3fbc4b7a4d22"
+    },
+    {
+      "path": "交付/RSI数据平台_元数据与血缘表结构示意_v1.0.sql",
+      "bytes": 9659,
+      "sha256": "d298d897332c142bd824f543e94c5a452b83612c9a47752233b9a50073818fa3"
+    },
+    {
+      "path": "交付/RSI数据平台_元数据血缘质量与多团队接入规范_v0.1.md",
+      "bytes": 37225,
+      "sha256": "ebc151916d846c7025ce33c7697b123f696dd0007a219bc9d8400aefeff8cd59"
+    },
+    {
+      "path": "交付/RSI数据平台_十模块架构与数据流_v2.0.drawio",
+      "bytes": 72227,
+      "sha256": "feb21d53d60c6c546b040fcbf3d278c5deae59300134062fc78989040c7e0ae9"
+    },
+    {
+      "path": "交付/RSI数据平台_十模块架构详解_v2.0.pptx",
+      "bytes": 206292,
+      "sha256": "ca7e29ee1d12cca2ef2c0967f49628f7282fc06848de2d87dfd3d0558e81d3bb"
+    },
+    {
+      "path": "交付/RSI数据平台_十模块详细建设方案_v2.0.md",
+      "bytes": 42200,
+      "sha256": "484b0da3db0b9955607db906a50f1d45f865fa76347003bd7995c9b79bfab5de"
+    },
+    {
+      "path": "交付/RSI数据平台_存储采集与进化资产选型_v4.0.md",
+      "bytes": 23892,
+      "sha256": "5227950c63a0cc4248dbae0813f0d644f900d022aa6bde63cd0f72d34d5fcd99"
+    },
+    {
+      "path": "交付/RSI数据平台_接入规范模板_v0.1/agent-event.example.json",
+      "bytes": 1581,
+      "sha256": "0d6f2945e89502e6182560f288eddaf8c37f44c052bd776dd59f6607d8a89e72"
+    },
+    {
+      "path": "交付/RSI数据平台_接入规范模板_v0.1/asset.example.json",
+      "bytes": 1206,
+      "sha256": "8ce251e6f429dd87a2121a61e1c781a6d0aa7e333aa736765933a81c52090bf0"
+    },
+    {
+      "path": "交付/RSI数据平台_接入规范模板_v0.1/asset.schema.json",
+      "bytes": 4341,
+      "sha256": "c6618760ed5d8de5e1d4cb005ca52e3964cb406256fcec6b439791ce55817301"
+    },
+    {
+      "path": "交付/RSI数据平台_接入规范模板_v0.1/business-event.example.json",
+      "bytes": 1237,
+      "sha256": "601d21764652c9a6c013e2db010abc724b594f5ff55ffaad994ccaed544cc2a4"
+    },
+    {
+      "path": "交付/RSI数据平台_接入规范模板_v0.1/data-contract.example.json",
+      "bytes": 1649,
+      "sha256": "e085d57dd451cb98f4ba280b7261c6f392ec69d9ba03ec36b0fa775cda855ccb"
+    },
+    {
+      "path": "交付/RSI数据平台_接入规范模板_v0.1/data-contract.schema.json",
+      "bytes": 6344,
+      "sha256": "27fc5bfae76dec80ad0ba8488a09b85a3df74b71ee46488070ddb7a00fe1631f"
+    },
+    {
+      "path": "交付/RSI数据平台_接入规范模板_v0.1/event.schema.json",
+      "bytes": 7391,
+      "sha256": "ab3763d6cb5a54ab22399fff885d2884b1ef109f9abc211dd37c9acc86125fcc"
+    },
+    {
+      "path": "交付/RSI数据平台_接入规范模板_v0.1/README.md",
+      "bytes": 2199,
+      "sha256": "31859e8469ab19ab4850a08340046319e43cd865f79beb894cfd3137d57bb4f2"
+    },
+    {
+      "path": "交付/RSI数据平台_接入规范模板_v0.1.zip",
+      "bytes": 8262,
+      "sha256": "0661871186b419b6e55c4db26551e851e9de945659ce5aca4a9a4e1e47fa2dfd"
+    },
+    {
+      "path": "交付/RSI数据平台_架构与存储采集选型_v4.0.pptx",
+      "bytes": 144467,
+      "sha256": "63eca17f72a9009bb07039ab7fbbd3760ea269286b3c16366a8c845c2af6a9cb"
+    },
+    {
+      "path": "交付/RSI数据平台_架构与数据流.drawio",
+      "bytes": 35764,
+      "sha256": "6619281a346a2b29a2b7d16a079cdacfb9d4bba276da69218e8177618ff19516"
+    },
+    {
+      "path": "交付/RSI数据平台_系统架构与元数据准入设计_v5.0.pptx",
+      "bytes": 164064,
+      "sha256": "28b93ca5389bb781cbf695de090d7c8e551f3f43e97d998c28bdb102ec55a606"
+    },
+    {
+      "path": "交付/RSI数据平台_系统架构与血缘质量实现_v3.0.pptx",
+      "bytes": 40539,
+      "sha256": "f1d90221c6ef1d734f1df64c0e1e61f274677a61bd400db48acb8acb25d54a1b"
+    },
+    {
+      "path": "交付/RSI数据平台_详细调研与架构方案_v1.0.md",
+      "bytes": 23012,
+      "sha256": "ea0520d43c63ae30f06e0b3053d0033114a6855428eb1274b247c156d6f0632c"
+    },
+    {
+      "path": "交付/RSI数据平台_领导汇报_v1.0.pptx",
+      "bytes": 124204,
+      "sha256": "00c3bdb216b6f6c117aaab1068723cdc9bf2176061744559058035beeeb6d96e"
+    },
+    {
+      "path": "RSI数据平台_调研与现状对比_v0.1.md",
+      "bytes": 19283,
+      "sha256": "5ba044dbd656f999e8081aa2243a232e3fe87a8420def99b725336c4acf835f4"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "payload_version": "1.0.0",
+  "contract_id": "demo-experiment-detail",
+  "version": "1.0.0",
+  "scope": {
+    "team_id": "team_hk_demo",
+    "project_id": "project_demo_01"
+  },
+  "domain_id": "demo-li-metal",
+  "producer_id": "excel-adapter-demo",
+  "owner_principal": "role:demo-data-owner",
+  "data_kind": "STRUCTURED",
+  "schema_ref": "urn:rsi:team-demo:experiment-detail:1.0.0",
+  "grain": "one observation per cell and experiment",
+  "primary_key_fields": [
+    "record_id"
+  ],
+  "field_semantics": [
+    {
+      "field_id": "field-demo-record",
+      "name": "record_id",
+      "data_type": "string",
+      "meaning": "stable identity assigned by ingestion service",
+      "nullable": false,
+      "missing_semantics": "reject if absent"
+    }
+  ],
+  "access": {
+    "policy_ref": "policy:demo-private-v1",
+    "allowed_purposes": [
+      "research-query"
+    ],
+    "service_scope_ref": "scope:demo-ingestion"
+  },
+  "quality": {
+    "rule_set_ref": "quality:demo-experiment@1",
+    "failure_scope": "RECORD",
+    "review_owner": "role:demo-data-owner",
+    "sla_ref": "sla:demo-to-be-approved"
+  },
+  "lineage": {
+    "producer_version": "demo-1.0.0",
+    "event_schema_ref": "urn:rsi:schema:event:1.0.0",
+    "source_locator_required": true,
+    "historical_policy": "UNKNOWN_WHEN_UNVERIFIABLE"
+  },
+  "lifecycle": {
+    "retention_policy_ref": "retention:demo-to-be-approved",
+    "withdrawal_policy_ref": "withdrawal:demo@1",
+    "recovery_policy_ref": "recovery:demo@1"
+  },
+  "update_mode": "REVISE",
+  "idempotency_scope": "PRINCIPAL_ENDPOINT_PROJECT",
+  "extensions": {}
+}
